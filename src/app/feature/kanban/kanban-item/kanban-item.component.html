@@ -1,0 +1,14 @@
+<div cdkDragHandle class="kanban-item-container pt-1 pb-1 d-flex flex-column">
+    <div class="delete-button" (click)="doDelete()">
+        <i class="fa-solid fa-trash"></i>
+    </div>
+    <span class="right-top-icon"></span>
+    <span class="right-bottom-icon"></span>
+
+    <div class="pr-1 pl-1" [ngClass]="isDoneClass" (click)="doSelectKanbanItem()">
+        {{content.title}}
+    </div>
+
+</div>
+
+

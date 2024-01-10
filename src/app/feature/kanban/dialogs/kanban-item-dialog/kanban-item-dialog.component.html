@@ -1,0 +1,27 @@
+<div class="dialog-container">
+
+  <header class="d-flex center dialog-header">
+    <h3>New Task</h3>
+    <div (click)="close()" class="d-flex close-button">
+      <i class="fas fa-times"></i>
+    </div>
+  </header>
+
+  <form class="dialog-body d-flex flex-column login-form" (submit)="doSubmit(form)" [formGroup]="form">
+    <label>Title</label>
+    <input #title type="text" formControlName="title" placeholder="Introduce your title..." />
+  
+    <label>Body</label>
+    <textarea placeholder="Introduce your body..." formControlName="body" 
+      cols="10" rows="5" charswidth="23" name="text_body">
+    </textarea> 
+
+    <div class="d-flex end">
+      <button class="btn btn-outline text-button" (click)="close()">Cancel</button>
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary ml-1">Submit</button>
+    </div>
+  </form>
+
+</div>
+
+  

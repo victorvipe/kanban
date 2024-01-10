@@ -1,0 +1,8 @@
+{
+    "KANBAN_HEADER": "Tablero Kanban",
+    "ADD_ITEM": "Añadir Item",
+    "ERROR_HANDLING_HEADER": "Procesado de Errores",
+    "COMMON_ERROR": "Error",
+    "COMMON_WARNING": "Aviso", 
+    "COMMON_SUCCESS": "Éxito"
+}

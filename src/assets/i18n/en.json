@@ -1,0 +1,8 @@
+{
+    "KANBAN_HEADER": "Kanban Board",
+    "ADD_ITEM": "Add Item",
+    "ERROR_HANDLING_HEADER": "Error Handling",
+    "COMMON_ERROR": "Error",
+    "COMMON_WARNING": "Warning", 
+    "COMMON_SUCCESS": "Success"
+}

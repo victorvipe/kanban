@@ -1,0 +1,46 @@
+{
+  "kanban-items": [
+    {
+      "title": "Gestionar los errores!",
+      "body": "Probar los diferentes mensajes de error",
+      "status": 2,
+      "id": 6
+    },
+    {
+      "title": "Dark / Light Mode",
+      "body": "",
+      "status": 0,
+      "id": 7
+    },
+    {
+      "title": "Electron create program for this",
+      "body": "",
+      "status": 0,
+      "id": 10
+    },
+    {
+      "title": "Close when Escape is pressed",
+      "body": "",
+      "status": 2,
+      "id": 13
+    },
+    {
+      "title": "Añadir internacionalización",
+      "body": "",
+      "status": 2,
+      "id": 14
+    },
+    {
+      "title": "Detalle de la nota",
+      "body": "",
+      "status": 2,
+      "id": 15
+    },
+    {
+      "title": "Que los que estén en DONE tengán tachado el title",
+      "body": "",
+      "status": 2,
+      "id": 16
+    }
+  ]
+}

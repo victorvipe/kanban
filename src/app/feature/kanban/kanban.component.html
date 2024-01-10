@@ -1,0 +1,73 @@
+<div class="kanban-wrapper">
+    <h1 class="header-title text-align-center pb-1">{{ 'KANBAN_HEADER' | translate }}</h1>
+
+    <div class="kanban-list w-100 d-flex mb-2">
+        <div class="kanban-panel w-100 text-align-center pt-1 pb-1">
+            TODO
+            <div
+                cdkDropList
+                class="pl-2 pr-2 d-flex flex-column cdkDropList"
+                #todoList="cdkDropList"
+                [cdkDropListData]="todoKanbanItems"
+                [cdkDropListConnectedTo]="[doneList, doingList]"
+                (cdkDropListDropped)="drop($event, 0)">
+                <app-kanban-item *ngFor="let item of todoKanbanItems; let i = index" 
+                    [content]="item"
+                    class="kanban-item-component w-100 mt-1"
+                    (onDelete)="doDelete($event, 0, item.id)"
+                    (onSelect)="doSelect($event)"
+                    cdkDrag>
+                </app-kanban-item>
+            </div>
+        </div>
+        <div class="w-100 kanban-panel text-align-center pt-1 pb-1">
+            DOING
+            <div
+                cdkDropList
+                class="pl-2 pr-2 d-flex flex-column cdkDropList"
+                #doingList="cdkDropList"
+                [cdkDropListData]="doingKanbanItems"
+                [cdkDropListConnectedTo]="[todoList, doneList]"
+                (cdkDropListDropped)="drop($event, 1)">
+                <app-kanban-item *ngFor="let item of doingKanbanItems; let i = index" 
+                    [content]="item"
+                    class="kanban-item-component w-100 mt-1"
+                    (onDelete)="doDelete($event, 1, item.id)"
+                    (onSelect)="doSelect($event)"
+                    cdkDrag>
+                </app-kanban-item>
+            </div>
+        </div>
+        <div class="w-100 kanban-panel text-align-center pt-1 pb-1">
+            DONE
+            <div
+                cdkDropList
+                class="pl-2 pr-2 d-flex flex-column cdkDropList"
+                #doneList="cdkDropList"
+                [cdkDropListData]="doneKanbanItems"
+                [cdkDropListConnectedTo]="[todoList, doingList]"
+                (cdkDropListDropped)="drop($event, 2)">
+                <app-kanban-item *ngFor="let item of doneKanbanItems; let i = index" 
+                    [content]="item"
+                    class="kanban-item-component w-100 mt-1"
+                    (onDelete)="doDelete($event, 2, item.id)"
+                    (onSelect)="doSelect($event)"
+                    cdkDrag>
+                </app-kanban-item>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex end">
+        <button class="btn btn-primary" (click)="doAdd()">{{ 'ADD_ITEM' | translate }}</button>
+        
+    </div>
+
+    <h1 class="header-title text-align-center pb-1">{{ 'ERROR_HANDLING_HEADER' | translate }}</h1>
+    <div class="d-flex start">
+        <button class="ml-1 btn btn-outline" (click)="doHandleError(errorType)">{{ 'COMMON_ERROR' | translate }}</button>
+        <button class="ml-1 btn btn-outline" (click)="doHandleError(warningType)">{{ 'COMMON_WARNING' | translate }}</button>
+        <button class="ml-1 btn btn-outline" (click)="doHandleError(successType)">{{ 'COMMON_SUCCESS' | translate }}</button>
+    </div>
+</div>
+

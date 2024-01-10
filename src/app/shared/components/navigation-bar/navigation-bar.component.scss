@@ -1,0 +1,15 @@
+@import "/src/assets/styles/colors.scss";
+
+.nav-bar {
+    .nav-bar-item {
+        width: 20%;
+        text-align: center;
+        border: 1px solid $orange;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: $light_gray;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import "/src/assets/styles/colors.scss";
+
+.kanban-item-container {
+    border: 1px solid $orange;
+    border-radius: 4px;
+    position: relative;
+    &:hover {
+        .delete-button {
+            opacity: 1;
+        }
+    }
+    .delete-button {
+        position: absolute;
+        left: 8px;
+        top: 2px;
+        color: $orange;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+    .right-top-icon {
+        position: absolute;
+        -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        width: 20px;
+        height: 20px;
+        color: white;
+        border: 1px solid white;
+        z-index: 999;
+        top: -1px;
+        right: -1px;
+        background: $light_orange;
+        border: 1px solid $orange;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .right-bottom-icon {
+        position: absolute;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+        width: 20px;
+        height: 20px;
+        color: white;
+        border: 1px solid white;
+        z-index: 999;
+        top: -1px;
+        right: -1px;
+        background: $main_dark;
+        border: 1px solid $main_dark;
+    }
+    .is-done {
+        text-decoration: line-through;
+    }
+}
