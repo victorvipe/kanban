@@ -1,4 +1,3 @@
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { KanbanItem, KanbanStatus } from 'src/app/model/kanbanModel';
 
@@ -12,20 +11,34 @@ export class KanbanItemComponent implements OnInit {
   @Input() content: KanbanItem = {title: '', status: 0};
   @Output() public onDelete: EventEmitter<boolean> = new EventEmitter<boolean>(false);
   @Output() public onSelect: EventEmitter<KanbanItem> = new EventEmitter<KanbanItem>();
-  public isDoneClass = '';
+  public statusClass = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.isDoneClass = this.content.status === KanbanStatus.DONE ? 'is-done' : '';
+    this.statusClass = this._calculateStatusClass();
   }
 
-  public doDelete(): void {
+  public doDelete(event: Event): void {
     this.onDelete.emit(true);
+    event.stopPropagation();
   }
 
   public doSelectKanbanItem(): void {
     this.onSelect.emit(this.content);
+  }
+
+  private _calculateStatusClass(): string {
+    switch(this.content.status) {
+        case KanbanStatus.TODO:
+            return 'is-todo';
+        case KanbanStatus.DOING: 
+            return 'is-doing';
+        case KanbanStatus.DONE:
+            return 'is-done';
+        default:
+            return '';
+    }
   }
 
 

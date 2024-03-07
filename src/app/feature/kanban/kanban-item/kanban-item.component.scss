@@ -1,7 +1,7 @@
 @import "/src/assets/styles/colors.scss";
 
 .kanban-item-container {
-    border: 1px solid $orange;
+    border: 1px solid $main_white;
     border-radius: 4px;
     position: relative;
     &:hover {
@@ -48,7 +48,29 @@
         background: $main_dark;
         border: 1px solid $main_dark;
     }
-    .is-done {
-        text-decoration: line-through;
+    &.is-done {
+        background-color: $main_success;
+        .right-top-icon {
+            background-color: $main_success;
+            border: 1px solid $main_white;
+        }
+        .content-title {
+            text-decoration: line-through;
+        }
+    }
+    &.is-doing {
+        background-color: $main_warning;
+        color: $main_black;
+        .right-top-icon {
+            background-color: $main_warning;
+            border: 1px solid $main_white;
+        }
+    }
+    &.is-todo {
+        background-color: $main_error;
+        .right-top-icon {
+            background-color: $main_error;
+            border: 1px solid $main_white;
+        }
     }
 }

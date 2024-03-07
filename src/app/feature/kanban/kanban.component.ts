@@ -4,7 +4,7 @@ import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 import { KanbanItemDialogComponent } from './dialogs/kanban-item-dialog/kanban-item-dialog.component';
 import { KanbanApiService } from './kanbanApi.service';
 import { KanbanItem, KanbanStatus } from 'src/app/model/kanbanModel';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ErrorType, ToastService } from 'src/app/shared/services/toast/toast.service';
 
@@ -19,14 +19,11 @@ export class KanbanComponent implements OnInit {
 	public todoKanbanItems: KanbanItem[] = [];
 	public doingKanbanItems: KanbanItem[] = [];
 	public doneKanbanItems: KanbanItem[] = [];
-	public errorType = ErrorType.ERROR;
-	public warningType = ErrorType.WARNING;
-	public successType = ErrorType.SUCCESS;
 
 	constructor(
 		private dialogService: DialogService,
 		private readonly kanbanApiService: KanbanApiService,
-		private readonly toastService: ToastService) { }
+        private readonly toastService: ToastService) { }
 
 	ngOnInit(): void {
 		this.kanbanApiService.fetchKanbanItems()
